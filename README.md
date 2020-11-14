@@ -1,2 +1,2 @@
-# web_lab6-11
+# Web Laboratory Work №6
 Web laboratory works with React
