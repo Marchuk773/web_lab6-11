@@ -19,4 +19,5 @@ function MainItem(props) {
         </MainItemStyle>
     );
 }
+
 export default MainItem;

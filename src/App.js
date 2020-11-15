@@ -2,14 +2,16 @@ import styled from 'styled-components'
 import Header from './components/header.js';
 import MainItem from './components/main-item.js';
 import Items from './components/items.js';
+import Footer from './components/footer.js';
 
 function App() {
   return (
     <Page>
       <Header />
       <MainItem img={drill} header='Drill (not the military one)'
-        text={lorem + lorem} price={123} />
+        text={lorem + lorem} price={321} />
       <Items />
+      <Footer />
     </Page>
   );
 }

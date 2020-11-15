@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HeaderWrapper = styled.header`
-    height: 60px;
+    height: 70px;
     background-color: #6688cc;
     padding-left: 5%;
     width: 95%;

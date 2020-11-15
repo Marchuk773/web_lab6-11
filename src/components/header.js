@@ -13,7 +13,7 @@ function HeaderNavButton(props) {
 function Header() {
     return (
         <HeaderWrapper>
-            <Logo />
+            <Logo height='40px' width='110px' />
             <HeaderNav>
                 <HeaderNavButton name='Home' />
                 <HeaderNavButton name='Catalog' />
