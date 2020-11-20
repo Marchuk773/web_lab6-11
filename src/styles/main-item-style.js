@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { darkBlue, mint, purple, blue, skyBlue } from './colors'
 
 export const MainItemStyle = styled.div`
-    background-color: #169990;
+    background-color: ${mint};
     height: 400px;
     border-radius: 16px;
     margin: 50px 20px;
@@ -10,7 +11,7 @@ export const MainItemStyle = styled.div`
     flex-direction: row;
     align-items: space-between;
     justify-content: space-around;
-`;
+`
 
 export const MainItemInfo = styled.div`
     width: 70%;
@@ -20,12 +21,13 @@ export const MainItemInfo = styled.div`
     align-items: flex-start;
     justify-content: space-around;
     font-size: 20px;
-    color: #1a1c3b;
+    color: ${purple};
     h1 {
        font-size: 36px;
-       color: #1a1c3b;
+       color :${purple};
     }
 `
+
 export const ImageContainer = styled.div`
     width: 30%;
     padding: 50px 30px;
@@ -46,9 +48,9 @@ export const PriceContainer = styled.div`
     button {
         height: 80%;
         width: 30%;
-        background-color: #28559a;
-        border-color: #28559a;
-        color: #a3d5f1;
+        background-color: ${darkBlue};
+        border-color: ${blue};
+        color: ${skyBlue};
         font-size: 28px;
         font-weight: 600;
         border-radius: 16px;

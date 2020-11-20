@@ -1,6 +1,7 @@
 import { Logo } from './reusable'
 import { HeaderNavButtonStyle, HeaderWrapper, HeaderNav }
-    from '../styles/header_style.js'
+    from '../styles/header-style.js'
+import { Link } from "react-router-dom";
 
 function HeaderNavButton(props) {
     return (
@@ -15,9 +16,15 @@ function Header() {
         <HeaderWrapper>
             <Logo height='40px' width='110px' />
             <HeaderNav>
-                <HeaderNavButton name='Home' />
-                <HeaderNavButton name='Catalog' />
-                <HeaderNavButton name='Cart' />
+                <Link to="/">
+                    <HeaderNavButton name='Home' />
+                </Link>
+                <Link to="/catalog">
+                    <HeaderNavButton name='Catalog' />
+                </Link>
+                <Link to="/cart">
+                    <HeaderNavButton name='Cart' />
+                </Link>
             </HeaderNav>
         </HeaderWrapper>
     );

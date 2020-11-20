@@ -1,5 +1,5 @@
 import { MainItemStyle, MainItemInfo, ImageContainer, PriceContainer }
-    from '../styles/main_item_style'
+    from '../styles/main-item-style'
 import { Image } from '../components/reusable'
 
 function MainItem(props) {

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { lightBlue, yellow, purple } from '../styles/colors'
 
 export const HeaderWrapper = styled.header`
     height: 70px;
-    background-color: #6688cc;
+    background-color: ${lightBlue};
     padding-left: 5%;
     width: 95%;
     display: flex;
@@ -10,23 +11,23 @@ export const HeaderWrapper = styled.header`
     flex-direction: row;
     align-items: center;
     justify-content: start;
-`;
+`
 
 export const HeaderNav = styled.div`
-    margin-left: 380px;
+    margin-left: 320px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-`;
+`
 
 export const HeaderNavButtonStyle = styled.button`
     width: 160px;
     margin: 0 20px;
     padding: 8px 10px;
     border-radius: 20px;
-    background-color: #ffcf43;
-    border-color: #ffcf43;
-    color: #1d2d4d;
+    background-color: ${yellow};
+    border-color: ${yellow};
+    color: ${purple};
     font-size: 18px;
 `
