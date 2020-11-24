@@ -15,7 +15,7 @@ export default function HomePage() {
     }
 
     return (
-        <div>
+        <>
             <MainItem header={mainItem.header} text={mainItem.text}
                 price={mainItem.price} img={mainItem.img} />
             <ItemsContainer>
@@ -30,7 +30,7 @@ export default function HomePage() {
                 )}
             </ItemsContainer>
             <ViewMore onClick={showMore}>View More</ViewMore>
-        </div>
+        </>
     );
 }
 

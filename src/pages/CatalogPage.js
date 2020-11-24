@@ -14,7 +14,7 @@ export default function CatalogPage() {
     }
 
     return (
-        <div>
+        <>
             <ItemsContainer>
                 <FilterBar />
 
@@ -33,7 +33,7 @@ export default function CatalogPage() {
 
             </ItemsContainer>
             <ViewMore onClick={showMore}>View More</ViewMore>
-        </div>
+        </>
     );
 }
 
