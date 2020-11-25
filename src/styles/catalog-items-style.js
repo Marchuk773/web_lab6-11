@@ -33,8 +33,8 @@ export const ItemContainer = styled.div`
         background-color: ${yellow};
         border-color: ${yellow};
         color: ${purple};
-        width: 60%;
-        height: 14%;
+        width: 275px;
+        height: 85px;
         font-size: 24px;
         font-weight: 600;
         border-radius: 12px;

@@ -3,31 +3,33 @@ import {
     SearchBoxContainer, InputStyle, ButtonStyle
 } from '../styles/filter-bar-style'
 import Select from '../components/select'
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-function FilterBar() {
+function FilterBar({ type, manufacturer, search }) {
+
+
     return (
         <FilterBarContainer>
 
             <SelectsContainer>
-                <Select number={1} />
-                <Select number={2} />
-                <Select number={3} />
+                <Select name='Type' options={['Drill', 'Hammer']} state={type} />
+                <Select name='Manufacturer' options={['DnisterM', 'SuperFactory', 'OnlyHammers']}
+                    state={manufacturer} />
             </SelectsContainer>
 
-            <SearchBox />
+            <SearchBox state={search} />
         </FilterBarContainer>
     );
 }
 
-function SearchBox() {
+function SearchBox({ state: [searchText, setSearchText] }) {
 
     const [text, setText] = useState('');
 
     return (
         <SearchBoxContainer>
             <InputStyle value={text} placeholder="Search.." onChange={e => (setText(e.target.value))} />
-            <ButtonStyle onClick={e => (e.preventDefault())}>Search</ButtonStyle>
+            <ButtonStyle onClick={e => (setSearchText(text))}>Search</ButtonStyle>
         </SearchBoxContainer>
     );
 }

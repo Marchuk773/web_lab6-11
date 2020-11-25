@@ -1,13 +1,14 @@
 import { SelectForm, SelectLabel, SelectStyle } from '../styles/select-style.js'
 
-function Select(props) {
+function Select({ name, options, state: [value, setValue], ...props }) {
     return (
         <SelectForm>
-            <SelectLabel for='filter'>Filter{props.number}</SelectLabel>
-            <SelectStyle name='filter'>
-                <option value='type'>Type</option>
-                <option value='price'>Price</option>
-                <option value='weight'>Weight</option>
+            <SelectLabel htmlFor='filter'>{name}</SelectLabel>
+            <SelectStyle name='filter' value={value} onChange={e => setValue(e.target.value)} {...props}>
+                <option value='None'>No Filter</option>
+                {options.map((thisOption) =>
+                    <option key={thisOption} value={thisOption}>{thisOption}</option>
+                )}
             </SelectStyle>
         </SelectForm>
     );
