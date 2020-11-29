@@ -2,11 +2,16 @@ import { ItemsContainer, ItemContainer, ViewMore } from '../styles/home-items-st
 import { Image } from '../components/reusable'
 import { useState } from 'react';
 import MainItem from '../components/main-item.js';
+import React from 'react';
+import { itemsListContext } from '../contexts/items'
+import { reduceText } from '../components/reusable'
 
-export default function HomePage(props) {
+export default function HomePage() {
 
-    const [items, setItems] = useState(props.itemsList);
-    const [mainItem, setMainItem] = useState(props.itemsList[0]);
+    const itemsList = React.useContext(itemsListContext);
+
+    const [items, setItems] = useState(itemsList);
+    const [mainItem, setMainItem] = useState(itemsList[0]);
     const [border, setBorder] = useState(5);
     const [secondaryItems, setSecondaryItems] = useState(items.slice(1, border));
 
@@ -23,16 +28,16 @@ export default function HomePage(props) {
                 {secondaryItems.map((item, index) =>
                     <ItemContainer key={`Item${item.id}`}>
                         <Image img={item.img} width='150px' height='150px' />
-                        <h1>{item.header.length < 15 ? item.header : item.header.substr(0, 15) + '...'}</h1>
-                        <div>{item.text.length < 100 ? item.text : item.text.substr(0, 100) + '...'}</div>
+                        <h1>{reduceText(item.header, 15)}</h1>
+                        <div>{reduceText(item.text, 80)}</div>
                         <h2>Price: {item.price}$</h2>
                         <button onClick={() => {
-                            const temp = items[0]
-                            items[0] = items[index + 1]
+                            const temp = items[0];
+                            items[0] = items[index + 1];
                             items[index + 1] = temp
-                            setMainItem(items[0])
-                            setSecondaryItems(items.slice(1, border))
-                            setItems(items)
+                            setMainItem(items[0]);
+                            setSecondaryItems(items.slice(1, border));
+                            setItems(items);
                         }} >Details</button>
                     </ItemContainer>
                 )}

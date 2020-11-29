@@ -29,6 +29,10 @@ export function Links() {
     );
 }
 
+export function reduceText(text, border) {
+    return text.length < border ? text : text.substr(0, border) + '...';
+}
+
 const LinksContainer = styled.div`
     display: flex;
     flex-direction: row;

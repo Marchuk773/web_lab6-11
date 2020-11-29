@@ -4,11 +4,14 @@ import {
     ButtonsContainer, Button
 } from '../styles/item-page-style.js'
 import { Link, useParams } from "react-router-dom";
+import React from 'react';
+import { itemsListContext } from '../contexts/items'
 
-export default function ItemPage(props) {
+export default function ItemPage() {
 
+    const itemsList = React.useContext(itemsListContext);
     const { id } = useParams();
-    const item = props.itemsList.find(item => (item.id === parseInt(id)));
+    const item = itemsList.find(item => (item.id === parseInt(id)));
 
     return (
         <>
