@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { darkBlue, mint, purple, blue, skyBlue } from './colors'
+import { darkBlue, mint, purple, blue, skyBlue } from '../styles/colors'
 
 export const MainItemStyle = styled.div`
     background-color: ${mint};

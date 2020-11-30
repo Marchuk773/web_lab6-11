@@ -4,6 +4,7 @@ import facebook from '../images/facebook-logo.svg'
 import twitter from '../images/twitter-logo.svg'
 import linkedIn from '../images/linkedin-logo.svg'
 import google from '../images/google-logo.svg'
+import '../styles/loader.css'
 
 export function Logo(props) {
     return (
@@ -33,6 +34,14 @@ export function reduceText(text, border) {
     return text.length < border ? text : text.substr(0, border) + '...';
 }
 
+export function Spinner() {
+    return (
+        <div style={{ height: '257px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div className='loader'>Loading...</div>
+        </div>
+    );
+}
+
 const LinksContainer = styled.div`
     display: flex;
     flex-direction: row;
@@ -40,4 +49,4 @@ const LinksContainer = styled.div`
 `
 
 const icons = [{ name: 'facebook', src: facebook, link: '#' }, { name: 'google', src: google, link: '#' },
-{ name: 'linkedIn', src: linkedIn, link: '#' }, { name: 'twitter', src: twitter, link: '#' }]
+{ name: 'linkedIn', src: linkedIn, link: '#' }, { name: 'twitter', src: twitter, link: '#' }];

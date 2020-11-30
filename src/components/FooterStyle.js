@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { purple, lightBlue } from './colors'
+import { purple, lightBlue } from '../styles/colors'
 
 export const FooterContainer = styled.footer`
     display: flex;

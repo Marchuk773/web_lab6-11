@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from './pages/HomePage'
 import CatalogPage from './pages/CatalogPage';
-import Header from './components/header.js';
-import Footer from './components/footer.js';
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
 import styled from 'styled-components'
 import ItemPage from "./pages/ItemPage";
 

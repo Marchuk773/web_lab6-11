@@ -1,5 +1,5 @@
 import { FooterContainer, FooterContent, FooterText, FooterCopyright, LinksContainer }
-    from '../styles/footer-style'
+    from './FooterStyle'
 import { Logo, Links } from './reusable'
 
 function Footer() {

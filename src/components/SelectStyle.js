@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { purple, skyBlue } from './colors'
+import { purple, skyBlue } from '../styles/colors'
 
 export const SelectForm = styled.form`
     display: flex;

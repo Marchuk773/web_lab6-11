@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { mint, skyBlue, purple, yellow } from './colors'
+import { mint, skyBlue, purple, yellow } from '../styles/colors'
 
 export const FilterBarContainer = styled.div`
     width: 100%;

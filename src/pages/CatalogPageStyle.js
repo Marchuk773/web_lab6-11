@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { purple, skyBlue, lightBlue, yellow, murrey } from './colors'
+import { purple, skyBlue, lightBlue, yellow, murrey } from '../styles/colors'
 
 export const ItemsContainer = styled.div`
     display: flex;

@@ -1,13 +1,15 @@
 import { Logo } from './reusable'
 import { HeaderNavButtonStyle, HeaderWrapper, HeaderNav }
-    from '../styles/header-style.js'
+    from './HeaderStyle.js'
 import { Link } from "react-router-dom";
 
-function HeaderNavButton(props) {
+function HeaderNavButton({ name, to }) {
     return (
-        <HeaderNavButtonStyle>
-            {props.name}
-        </HeaderNavButtonStyle>
+        <Link to={to}>
+            <HeaderNavButtonStyle>
+                {name}
+            </HeaderNavButtonStyle>
+        </Link>
     );
 }
 
@@ -16,15 +18,9 @@ function Header() {
         <HeaderWrapper>
             <Logo height='40px' width='110px' />
             <HeaderNav>
-                <Link to="/">
-                    <HeaderNavButton name='Home' />
-                </Link>
-                <Link to="/catalog">
-                    <HeaderNavButton name='Catalog' />
-                </Link>
-                <Link to="/cart">
-                    <HeaderNavButton name='Cart' />
-                </Link>
+                <HeaderNavButton name='Home' to='/' />
+                <HeaderNavButton name='Catalog' to='/catalog' />
+                <HeaderNavButton name='Cart' to='/cart' />
             </HeaderNav>
         </HeaderWrapper>
     );

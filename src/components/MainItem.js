@@ -1,5 +1,5 @@
 import { MainItemStyle, MainItemInfo, ImageContainer, PriceContainer }
-    from '../styles/main-item-style'
+    from './MainItemStyle'
 import { Image } from '../components/reusable'
 
 function MainItem(props) {
@@ -10,7 +10,7 @@ function MainItem(props) {
             </ImageContainer>
             <MainItemInfo>
                 <h1>{props.header}</h1>
-                <div>{props.text}</div>
+                <div>{props.description}</div>
                 <PriceContainer>
                     <div>Price: {props.price}$</div>
                     <button>Add to Cart</button>

@@ -1,4 +1,4 @@
-import { SelectForm, SelectLabel, SelectStyle } from '../styles/select-style.js'
+import { SelectForm, SelectLabel, SelectStyle } from './SelectStyle.js'
 
 function Select({ name, options, state: [value, setValue] }) {
     return (

@@ -1,8 +1,8 @@
 import {
     FilterBarContainer, SelectsContainer,
     SearchBoxContainer, InputStyle, ButtonStyle
-} from '../styles/filter-bar-style'
-import Select from '../components/select'
+} from './FilterBarStyle'
+import Select from './Select'
 import React, { useState } from 'react';
 
 function FilterBar({ type, manufacturer, search }) {

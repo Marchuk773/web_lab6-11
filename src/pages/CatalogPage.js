@@ -1,47 +1,45 @@
 import { useEffect, useState } from 'react'
-import { ItemsContainer, ItemContainer, PriceContainer, ViewMore } from '../styles/catalog-items-style'
+import { ItemsContainer, ItemContainer, PriceContainer, ViewMore } from './CatalogPageStyle'
 import { Image } from '../components/reusable'
-import FilterBar from '../components/filter-bar';
-import { reduceText } from '../components/reusable'
+import FilterBar from '../components/FilterBar';
+import { reduceText, Spinner } from '../components/reusable'
 import { Link } from "react-router-dom";
 import React from 'react';
-import { itemsListContext } from '../contexts/items'
+import { getFilteredTools } from '../connection.js'
 
 export default function CatalogPage() {
 
-    const itemsList = React.useContext(itemsListContext);
-
     const [border, setBorder] = useState(3);
-    const [items, setItems] = useState(itemsList.slice(0, border));
+    const [items, setItems] = useState([]);
+    const [showedItems, setShowedItems] = useState([]);
     const [typeFilter, setTypeFilter] = useState('None');
     const [manufacturerFilter, setManufacturerFilter] = useState('None');
     const [searchText, setSearchText] = useState('');
+
+    useEffect(() => {
+        (async function () {
+            setItems(await getFilteredTools(typeFilter, manufacturerFilter));
+        })()
+    }, [typeFilter, manufacturerFilter]);
 
     function showMore() {
         setBorder(border + 3);
     }
 
     useEffect(() => {
+        if (!items) { return }
         const pattern = new RegExp(searchText, 'i');
-
-        let filteredItems = itemsList;
+        let filteredItems = items;
 
         if (searchText !== '') {
-            filteredItems = filteredItems.filter(item => (pattern.test(item.header) ||
-                pattern.test(item.text) || pattern.test(item.price)));
+            filteredItems = items.filter(item => (pattern.test(item.header) ||
+                pattern.test(item.description) || pattern.test(item.price)));
         }
 
-        if (typeFilter !== 'None') {
-            filteredItems = filteredItems.filter(item => (item.type === typeFilter));
-        }
+        setShowedItems(filteredItems.slice(0, border));
+    }, [border, searchText, items]);
 
-        if (manufacturerFilter !== 'None') {
-            filteredItems = filteredItems.filter(item => (item.manufacturer === manufacturerFilter));
-        }
-
-        setItems(filteredItems.slice(0, border));
-    }, [border, typeFilter, manufacturerFilter, searchText, itemsList]);
-
+    if (!showedItems) { return <Spinner /> }
     return (
         <>
             <ItemsContainer>
@@ -49,17 +47,17 @@ export default function CatalogPage() {
                     manufacturer={[manufacturerFilter, setManufacturerFilter]}
                     search={[searchText, setSearchText]} />
 
-                {items.map((item) =>
+                {showedItems.map((item) =>
                     <ItemContainer key={`Item${item.id}`}>
                         <Image img={item.img} width='200px' height='200px' />
                         <h1>{reduceText(item.header, 45)}</h1>
-                        <div>{reduceText(item.text, 245)}</div>
+                        <div>{reduceText(item.description, 245)}</div>
                         <PriceContainer>
                             <h1>Price:</h1>
                             <h1>{item.price}$</h1>
                         </PriceContainer>
                         <Link to={"/item/" + item.id}>
-                            <button>View More</button>
+                            <button onClick={() => (window.scrollTo({ top: 0 }))}>View More</button>
                         </Link>
                     </ItemContainer>
                 )}

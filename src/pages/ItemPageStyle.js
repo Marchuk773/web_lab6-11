@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { mint, purple, yellow } from './colors'
+import { mint, purple, yellow } from '../styles/colors'
 
 export const UpperContainer = styled.div`
     width: 80%;
