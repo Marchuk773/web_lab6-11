@@ -36,7 +36,7 @@ export function reduceText(text, border) {
 
 export function Spinner() {
     return (
-        <div style={{ height: '257px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ height: '500px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className='loader'>Loading...</div>
         </div>
     );
@@ -48,5 +48,9 @@ const LinksContainer = styled.div`
     justify-content: space-around;
 `
 
-const icons = [{ name: 'facebook', src: facebook, link: '#' }, { name: 'google', src: google, link: '#' },
-{ name: 'linkedIn', src: linkedIn, link: '#' }, { name: 'twitter', src: twitter, link: '#' }];
+const icons = [
+    { name: 'facebook', src: facebook, link: '#' },
+    { name: 'google', src: google, link: '#' },
+    { name: 'linkedIn', src: linkedIn, link: '#' },
+    { name: 'twitter', src: twitter, link: '#' }
+];

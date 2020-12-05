@@ -5,6 +5,7 @@ import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import styled from 'styled-components'
 import ItemPage from "./pages/ItemPage";
+import CartPage from "./pages/CartPage";
 
 function App() {
 
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/item/:id">
             <ItemPage />
+          </Route>
+          <Route path="/cart">
+            <CartPage />
           </Route>
         </Switch>
         <Footer />

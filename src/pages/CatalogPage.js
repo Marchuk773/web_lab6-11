@@ -5,7 +5,7 @@ import FilterBar from '../components/FilterBar';
 import { reduceText, Spinner } from '../components/reusable'
 import { Link } from "react-router-dom";
 import React from 'react';
-import { getFilteredTools } from '../connection.js'
+import { getFilteredTools } from '../connection/connection.js';
 
 export default function CatalogPage() {
 
@@ -30,14 +30,13 @@ export default function CatalogPage() {
         if (!items) { return }
         const pattern = new RegExp(searchText, 'i');
         let filteredItems = items;
-
         if (searchText !== '') {
             filteredItems = items.filter(item => (pattern.test(item.header) ||
                 pattern.test(item.description) || pattern.test(item.price)));
         }
-
         setShowedItems(filteredItems.slice(0, border));
     }, [border, searchText, items]);
+
 
     if (!showedItems) { return <Spinner /> }
     return (
@@ -46,7 +45,6 @@ export default function CatalogPage() {
                 <FilterBar type={[typeFilter, setTypeFilter]}
                     manufacturer={[manufacturerFilter, setManufacturerFilter]}
                     search={[searchText, setSearchText]} />
-
                 {showedItems.map((item) =>
                     <ItemContainer key={`Item${item.id}`}>
                         <Image img={item.img} width='200px' height='200px' />
@@ -61,7 +59,6 @@ export default function CatalogPage() {
                         </Link>
                     </ItemContainer>
                 )}
-
             </ItemsContainer>
             <ViewMore onClick={showMore}>View More</ViewMore>
         </>

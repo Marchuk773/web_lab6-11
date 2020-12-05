@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import MainItem from '../components/MainItem.js';
 import React from 'react';
 import { reduceText } from '../components/reusable'
-import { getTools } from '../connection.js'
+import { getTools } from '../connection/connection.js';
 
 export default function HomePage() {
 
@@ -34,8 +34,7 @@ export default function HomePage() {
     else
         return (
             <>
-                <MainItem header={mainItem.header} description={mainItem.description}
-                    price={mainItem.price} img={mainItem.img} />
+                <MainItem item={mainItem} />
                 <ItemsContainer>
                     {secondaryItems.map((item, index) =>
                         <ItemContainer key={`Item${item.id}`}>
