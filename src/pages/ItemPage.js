@@ -5,11 +5,14 @@ import {
 } from './ItemPageStyle.js'
 import { Link, useParams } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import { getToolById } from '../connection.js'
+import { getToolById } from '../connection/connection.js';
+import { useDispatch } from 'react-redux';
+import { add } from '../store/actions/actions.js'
 
 export default function ItemPage() {
 
     const { id } = useParams();
+    const dispatch = useDispatch();
 
     async function loadItem(id) {
         setItem(await getToolById(id));
@@ -35,7 +38,7 @@ export default function ItemPage() {
                     <Link to="/catalog">
                         <Button>Go Back</Button>
                     </Link>
-                    <Button>Add to Cart</Button>
+                    <Button onClick={() => dispatch(add(item))}>Add to Cart</Button>
                 </ButtonsContainer>
             </BottomContainer>
         </>

@@ -13,14 +13,9 @@ export async function getTools() {
 }
 
 export async function getToolById(id) {
-    await delay(3000);
     return (await instance.get(`/${id}`)).data;
 }
 
 export async function getFilteredTools(type, manufacturer) {
     return (await instance.get(`/filters?type=${type}&manufacturer=${manufacturer}`)).data;
-}
-
-async function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
 }
