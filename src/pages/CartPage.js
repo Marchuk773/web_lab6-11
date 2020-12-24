@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 function CartPage() {
 
     const dispatch = useDispatch();
-    const items = useSelector(state => state);
+    const items = useSelector(state => state.items);
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {

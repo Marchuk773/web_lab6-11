@@ -1,4 +1,4 @@
-const itemReducer = (state = [], { type, payload }) => {
+const itemReducer = (state = [], { type, payload = {} }) => {
     let index = state.findIndex(item => item.id === payload.id);
     switch (type) {
         case 'ADD':

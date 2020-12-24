@@ -25,3 +25,15 @@ export const decrement = (payload) => {
         payload
     }
 }
+
+export const logged = () => {
+    return {
+        type: 'LOGGED'
+    }
+}
+
+export const signedOut = () => {
+    return {
+        type: 'SIGNEDOUT'
+    }
+}

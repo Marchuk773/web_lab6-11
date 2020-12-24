@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from './pages/HomePage'
 import CatalogPage from './pages/CatalogPage';
 import Header from './components/Header';
@@ -8,32 +8,33 @@ import ItemPage from "./pages/ItemPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import SuccessPage from "./pages/SuccesPage";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import { useSelector } from 'react-redux';
 
 function App() {
+
+  const isLogged = useSelector(state => state.login);
 
   return (
     <Router>
       <Page>
-        <Header />
+        {isLogged ? <Header /> : null}
         <Switch>
-          <Route exact path="/">
-            <HomePage />
+          <Route path='/register'>
+            <RegisterPage />
           </Route>
-          <Route path="/catalog">
-            <CatalogPage />
+          <Route path='/login'>
+            <LoginPage />
           </Route>
-          <Route path="/item/:id">
-            <ItemPage />
-          </Route>
-          <Route path="/cart">
-            <CartPage />
-          </Route>
-          <Route path="/checkout">
-            <CheckoutPage />
-          </Route>
-          <Route path="/success">
-            <SuccessPage />
-          </Route>
+          {pages.map(({ path, page }) => {
+            if (isLogged) {
+              return <Route key={path} exact path={path} component={page} />
+            }
+            else {
+              return <Redirect key={path} to='/login' />
+            }
+          })}
         </Switch>
         <Footer />
       </Page>
@@ -42,6 +43,15 @@ function App() {
 }
 
 export default App;
+
+const pages = [
+  { 'path': '/', 'page': HomePage },
+  { 'path': '/catalog', 'page': CatalogPage },
+  { 'path': '/item/:id', 'page': ItemPage },
+  { 'path': '/cart', 'page': CartPage },
+  { 'path': '/checkout', 'page': CheckoutPage },
+  { 'path': '/success', 'page': SuccessPage }
+]
 
 const Page = styled.div`
   background-color: #22223a;

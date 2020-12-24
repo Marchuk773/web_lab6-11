@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { lightBlue, yellow, purple } from '../styles/colors'
+import { lightBlue, yellow, purple, skyBlue } from '../styles/colors'
 
 export const HeaderWrapper = styled.header`
     height: 70px;
@@ -14,7 +14,7 @@ export const HeaderWrapper = styled.header`
 `
 
 export const HeaderNav = styled.div`
-    margin-left: 320px;
+    margin-left: 280px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -28,6 +28,18 @@ export const HeaderNavButtonStyle = styled.button`
     border-radius: 20px;
     background-color: ${yellow};
     border-color: ${yellow};
+    color: ${purple};
+    font-size: 18px;
+`
+
+export const SignOutStyle = styled.button`
+    width: 160px;
+    height: 41.6px;
+    margin-left: 160px;
+    padding: 8px 10px;
+    border-radius: 20px;
+    background-color: ${skyBlue};
+    border-color: ${skyBlue};
     color: ${purple};
     font-size: 18px;
 `

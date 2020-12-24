@@ -6,7 +6,7 @@ import {
 import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 
-function TextInput({ label, ...props }) {
+function FieldInput({ label, ...props }) {
 
     const [field, meta] = useField(props);
 
@@ -47,7 +47,7 @@ function CheckoutPage() {
                     .email('You should write correct email adress')
                     .required('This field is required'),
                 phone: Yup.string()
-                    .matches('^[+\\d]\\d{8,11}', 'You should enter a valid phone number')
+                    .matches('^[+\\d]\\d{8,11}$', 'You should enter a valid phone number')
                     .required('This field is required'),
                 address: Yup.string()
                     .optional()
@@ -61,11 +61,11 @@ function CheckoutPage() {
                     <FormContainer>
                         <h1>Checkout</h1>
                         <FieldsContainer>
-                            <TextInput label='Name' name='name' type='text' placeholder='Enter your name' />
-                            <TextInput label='Surname' name='surname' type='text' placeholder='Enter your surname' />
-                            <TextInput label='Email' name='email' type='email' placeholder='Enter your email' />
-                            <TextInput label='Phone' name='phone' type='text' placeholder='Enter your phone number' />
-                            <TextInput label='Address' name='address' type='text' placeholder='Enter your address' />
+                            <FieldInput label='Name' name='name' type='text' placeholder='Enter your name' />
+                            <FieldInput label='Surname' name='surname' type='text' placeholder='Enter your surname' />
+                            <FieldInput label='Email' name='email' type='email' placeholder='Enter your email' />
+                            <FieldInput label='Phone' name='phone' type='text' placeholder='Enter your phone number' />
+                            <FieldInput label='Address' name='address' type='text' placeholder='Enter your address' />
                             <Button type='submit'>Submit</Button>
                         </FieldsContainer>
                     </FormContainer>
